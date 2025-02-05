@@ -1,5 +1,3 @@
-
-import os
 from django.contrib import admin
 from django.urls import path
 
@@ -15,7 +13,3 @@ if settings.APP_ENV != "production":
     urlpatterns += [
         path("silk/", include("silk.urls", namespace="silk")),
     ]
-
-
-
-
