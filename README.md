@@ -7,7 +7,7 @@ Before using this template, ensure you have the following installed:
 
 - [uv](https://github.com/astral-sh/uv) (for package management)
 
-### Depenedencies 
+### Depenedencies
 These are the depencies installed in the template installed:
 
 - django
@@ -15,7 +15,11 @@ These are the depencies installed in the template installed:
 - markdown (Markdown support for the browsable API.)
 - django-filter (Filtering support)
 - django-silk (profiling and inspection)
-- python-decouple (env variables management)
+- django-environ (env variables management)
+- ruff (linting and formatting)
+- pytest (testing)
+- pytest-cov (coverage)
+- django_extensions (To auto-import necessary packages and modules from Django when we start a shell)
 
 ### Installation
 
@@ -58,6 +62,18 @@ To apply automatic fixes:
 ruff check --fix .
 ```
 
+
+### Running test
+To run test:
+```sh
+uv run pytest .
+```
+To run coverage:
+```sh
+coverage run -m pytest .
+```
+
+
 ## Running the Django Server
 
 1. **Apply migrations:**
@@ -69,6 +85,7 @@ ruff check --fix .
    python manage.py runserver
    ```
 
+
 ## Directory Structure
 ```
 myproject/
@@ -78,6 +95,8 @@ myproject/
 │   │── settings.py
 │   │── urls.py
 │   │── wsgi.py
+│── apps
+
 │── myapp/
 │   │── migrations/
 │   │── __init__.py

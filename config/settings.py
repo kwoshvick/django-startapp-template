@@ -1,6 +1,8 @@
 from pathlib import Path
 
-from decouple import config
+import environ
+
+env = environ.Env()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -9,11 +11,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-*h=u^y9^#8br)r$)@3^tc^v2sc53#bgzp27*z#f#%!9&=s!xe0"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env.bool("DEBUG", default=False)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = env.list("ALLOWED_HOSTS", default=["localhost"])
 
-APP_ENV = config("APP_ENV", default="production")
+APP_ENV = env("APP_ENV", default="development")
 
 
 # Application definition
@@ -26,8 +28,10 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     # third party
+    "django_extensions",
     "rest_framework",
     "silk",
+    # app
 ]
 
 MIDDLEWARE = [
