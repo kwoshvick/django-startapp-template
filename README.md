@@ -20,6 +20,8 @@ These are the depencies installed in the template installed:
 - pytest (testing)
 - pytest-cov (coverage)
 - django_extensions (To auto-import necessary packages and modules from Django when we start a shell)
+- django-cors-headers (headers access)
+
 
 ### Installation
 
