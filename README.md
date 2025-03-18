@@ -21,6 +21,11 @@ These are the depencies installed in the template installed:
 - pytest-cov (coverage)
 - django_extensions (To auto-import necessary packages and modules from Django when we start a shell)
 - django-cors-headers (headers access)
+- django-redis (for redis)
+- celery (background tasks)
+- django_celery_results (celery result backends )
+- django-unfold (admin ui )
+- drf-spectacular (browsable api)
 
 
 ### Installation
@@ -76,7 +81,7 @@ coverage run -m pytest .
 ```
 
 
-## Running the Django Server
+## Running the Django App
 
 1. **Apply migrations:**
    ```sh
@@ -84,8 +89,14 @@ coverage run -m pytest .
    ```
 2. **Run the development server:**
    ```sh
-   python manage.py runserver
+   uv run manage.py runserver
    ```
+
+3. **Start Celery**
+   ```sh
+   uv run celery -A config worker --loglevel=INFO
+   ```
+4.
 
 
 ## Directory Structure

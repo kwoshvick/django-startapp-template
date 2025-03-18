@@ -1,4 +1,5 @@
 import os
+from importlib.resources._common import _
 from pathlib import Path
 
 import environ
@@ -31,6 +32,7 @@ APP_ENV = env.str("APP_ENV", default="development")
 # Application definition
 
 INSTALLED_APPS = [
+    "unfold",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -38,8 +40,10 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     # third party
+    "django_celery_results",
     "django_extensions",
     "rest_framework",
+    "drf_spectacular",
     "corsheaders",
     "silk",
     # app
@@ -109,6 +113,24 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+# rest
+
+REST_FRAMEWORK = {
+    # "DEFAULT_AUTHENTICATION_CLASSES": (
+    #     "rest_framework_simplejwt.authentication.JWTAuthentication",
+    # ),
+    "DEFAULT_FILTER_BACKENDS": ["django_filters.rest_framework.DjangoFilterBackend"],
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
+    "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.LimitOffsetPagination",
+    "PAGE_SIZE": 50,
+    "TEST_REQUEST_DEFAULT_FORMAT": "json",
+    "DEFAULT_RENDERER_CLASSES": (
+        "rest_framework.renderers.JSONRenderer",
+        "rest_framework.renderers.BrowsableAPIRenderer",
+    ),
+}
+
+
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
@@ -137,3 +159,31 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 # cors
 CORS_ALLOWED_ORIGINS = env.list("CORS_ALLOWED_ORIGINS", default=["http://localhost"])
 CSRF_TRUSTED_ORIGINS = env.list("CSRF_TRUSTED_ORIGINS", default=["http://localhost"])
+
+# celery
+CELERY_BROKER_URL = env.str("CELERY_BROKER_URL", default="redis://localhost:6379/0")
+CELERY_RESULT_BACKEND = env.str("REDIS_BACKEND", default="redis://localhost:6379/1")
+
+# docs
+SPECTACULAR_SETTINGS = {
+    "TITLE": "Django startapp template ",
+    "DESCRIPTION": "this is a start app template",
+    "VERSION": "1.0.0",
+    "SERVE_INCLUDE_SCHEMA": False,
+    "SCHEMA_PATH_PREFIX": r"/api/v[0-9]",
+}
+
+
+UNFOLD = {
+    "SITE_TITLE": "Django Startapp Template",
+    "SITE_HEADER": "Django Startapp Template",
+    "SITE_SUBHEADER": "Django Startapp Template",
+    "SITE_DROPDOWN": [
+        {
+            "icon": "diamond",
+            "title": _("Django Startapp Template"),
+            "link": "https://example.com",
+        },
+        # ...
+    ],
+}
