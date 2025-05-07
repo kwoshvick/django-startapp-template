@@ -29,9 +29,10 @@ dev = [
     "ruff>=0.9.4",
 ]
 
+
+
 [tool.ruff]
 line-length = 100
-
 
 [tool.ruff.lint]
 extend-select = ["F","I", "W", "B", "Q", "E501", "F401"]  # Adds import, warnings, bugbear, quote style, line-too-long checks
