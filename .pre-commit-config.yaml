@@ -19,7 +19,7 @@ repos:
     hooks:
       - id: ruff
 
-        args: [--select=I, --fix ] # Sort imports
+        args: [--fix ]
       - id: ruff-format # Format code (like Black)
 
 
