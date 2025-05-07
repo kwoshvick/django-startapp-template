@@ -19,5 +19,16 @@ repos:
     hooks:
       - id: ruff
 
-        args: [--select=I, --fix ]
-      - id: ruff-format
+        args: [--select=I, --fix ] # Sort imports
+      - id: ruff-format # Format code (like Black)
+
+
+  - repo: local
+    hooks:
+      - id: pytest
+        name: Run tests
+        entry: pytest -n auto
+        language: system
+        pass_filenames: false
+        always_run: true
+        stages: [push]

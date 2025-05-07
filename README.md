@@ -20,6 +20,7 @@ These are the depencies installed in the template installed:
 - django-environ (env variables management)
 - ruff (linting and formatting)
 - pytest (testing)
+- pytest-xdist (run tests in parallel using all CPU cores)
 - pytest-cov (coverage)
 - django_extensions (To auto-import necessary packages and modules from Django when we start a shell)
 - django-cors-headers (headers access)
