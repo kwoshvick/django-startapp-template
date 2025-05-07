@@ -6,8 +6,10 @@
 Before using this template, ensure you have the following installed:
 
 - [uv](https://github.com/astral-sh/uv) (for package management)
+- update uv to the latest available version if installed
+    -  `uv self update`
 
-### Depenedencies
+### Dependencies
 These are the depencies installed in the template installed:
 
 - django
@@ -128,3 +130,12 @@ myproject/
 
 ---
 This template provides a quick start for Django app development using `uv` for package management and `ruff` for linting.
+
+
+## updating dependencies
+- update specific pakage
+  - `uv lock --upgrade <package_name1> `
+- update all packages
+  - `uv lock --upgrade`
+- After update run sync
+  - `uv sync`
