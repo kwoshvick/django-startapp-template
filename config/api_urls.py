@@ -1,8 +1,5 @@
-from django.urls import include, re_path
+from django.urls import include, path, re_path
 
 urlpatterns = [
-    re_path(
-        r"^accounts/",
-        include(("apps.accounts.api.urls", "accounts-api"), namespace="accounts-api"),
-    ),
+    path("accounts", include("apps.accounts.api.urls", namespace="accounts-api")),
 ]
