@@ -16,9 +16,9 @@ class BaseModel(models.Model):
         verbose_name_plural = "Base Models"
 
     def delete(self):
-        self.is_archived = False
+        self.is_archived = True
         self.save()
 
     def restore(self):
-        self.is_archived = True
+        self.is_archived = False
         self.save()

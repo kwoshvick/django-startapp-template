@@ -104,23 +104,33 @@ coverage run -m pytest .
 
 ## Directory Structure
 ```
-myproject/
+django-startapp-template/
 │── manage.py
 │── config/
 │   │── __init__.py
 │   │── settings.py
 │   │── urls.py
 │   │── wsgi.py
+│   │── asgi.py
+│   │── celery.py
 │── apps
+│   │── myapp1/
+│       │── migrations/
+│       │── __init__.py
+│       │── admin.py
+│       │── apps.py
+│       │── models.py
+│       │── tests.py
+│       │── views.py
+│   │── myapp2/
+│       │── migrations/
+│       │── __init__.py
+│       │── admin.py
+│       │── apps.py
+│       │── models.py
+│       │── tests.py
+│       │── views.py
 
-│── myapp/
-│   │── migrations/
-│   │── __init__.py
-│   │── admin.py
-│   │── apps.py
-│   │── models.py
-│   │── tests.py
-│   │── views.py
 ```
 
 ## Next Steps
