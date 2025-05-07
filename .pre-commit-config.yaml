@@ -21,6 +21,9 @@ repos:
 
         args: [--fix ]
       - id: ruff-format # Format code (like Black)
+      - id: ruff
+        name: ruff-imports
+        args: [ "check", "--select", "I", "--fix" ]
 
 
   - repo: local
