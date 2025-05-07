@@ -1,11 +1,11 @@
 from __future__ import absolute_import, unicode_literals
 
 import os
-import environ
 
+import environ
+from celery import Celery
 from django.conf import settings
 
-from celery import Celery
 # from decouple import config
 
 env = environ.Env()
