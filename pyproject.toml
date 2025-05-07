@@ -33,4 +33,4 @@ dev = [
 fix = true
 
 [tool.ruff.lint]
-extend-select = ["I", "W", "B", "Q", "E501"]  # Adds import, warnings, bugbear, quote style, line-too-long checks
+extend-select = ["F","I", "W", "B", "Q", "E501"]  # Adds import, warnings, bugbear, quote style, line-too-long checks
