@@ -1,9 +1,8 @@
 import os
-from importlib.resources._common import _
 from pathlib import Path
 
 import environ
-
+from django.utils.translation import gettext_lazy as _
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -26,7 +25,7 @@ DEBUG = env.bool("DEBUG", default=False)
 ALLOWED_HOSTS = env.list("ALLOWED_HOSTS", default=["localhost"])
 
 
-APP_ENV = env.str("APP_ENV", default="development")
+SILK_ENABLED = env.bool("SILK_ENABLED", default=False)
 
 
 # Application definition
@@ -186,4 +185,5 @@ UNFOLD = {
         },
         # ...
     ],
+    "THEME": "dark",
 }
