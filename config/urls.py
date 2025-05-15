@@ -1,17 +1,17 @@
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.urls import include, path, re_path
+from django.urls import include, path
 from drf_spectacular.views import (
     SpectacularAPIView,
     SpectacularRedocView,
     SpectacularSwaggerView,
 )
 
-from config import api_urls, settings
+from config import settings
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    re_path(r"^(?P<version>(v1))/", include(api_urls)),
+    # re_path(r"^(?P<version>(v1))/", include(api_urls)),
 ]
 
 if settings.DEBUG:
@@ -21,7 +21,7 @@ if settings.DEBUG:
         path(
             "docs/",
             SpectacularSwaggerView.as_view(url_name="schema"),
-            name="swagger-ui",
+            name="api-docs",
         ),
     ]
 
